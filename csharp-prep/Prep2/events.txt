@@ -2,3 +2,7 @@ Date: 1/26/2024 2:09:19 PM
 What did you do today?: Went to sxhool
 What did you learn today?: french
 What are you grateful for today?: Living
+Date: 1/26/2024 2:32:50 PM
+What did you do today?:  & 'c:\Users\Admin\.vscode\extensions\ms-dotnettools.csharp-2.15.30-win32-x64\.debugger\x86_64\vsdbg.exe' '--interpreter=vscode' '--connection=e2f147f519f44a06ae47fc435dc7330c' 
+What did you learn today?: & 'c:\Users\Admin\.vscode\extensions\ms-dotnettools.csharp-2.15.30-win32-x64\.debugger\x86_64\vsdbgexe' '--interpreter=vscode' '--connection=d9349fe16a03478bb794a3937ec0a924'  & 'c:\Users\Admin\.vscode\extensions\ms-dotnettoos.csharp-2.15.30-win32-x64\.debugger\x86_64\vsdbg.exe' '--interpreter=vscode' '--connection=d82310139ee4759890f2fcc68a197bf' 
+What are you grateful for today?: Console.WriteLine("Your name is " + lastName + ", " + firstName + " " + lastName);
