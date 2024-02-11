@@ -1,31 +1,70 @@
+
+
 using System;
 
-internal class Program
-using System;
-
-
-internal class PersonalAssistant
+class Journal
 {
-    private static void Main(string[] args)
-    {
-        string[] prompts = { "What did you do today?", "What did you learn today?", "What are you grateful for today?" };
-        string[] responses = new string[prompts.Length];
-        DateTime date = DateTime.Now;
+    static string journalDirectory = "JournalEntries";
 
-        for (int i = 0; i < prompts.Length; i++)
+    static void Main()
+    {
+        if (!Directory.Exists(journalDirectory))
         {
-            Console.Write(prompts[i] + ": ");
-            responses[i] = Console.ReadLine();
+            Directory.CreateDirectory(journalDirectory);
         }
 
-        using (StreamWriter writer = new StreamWriter("events.txt", true))
+        while (true)
         {
-            writer.WriteLine("Date: " + date.ToString());
-            for (int i = 0; i < prompts.Length; i++)
+            Console.WriteLine("Journal Application");
+            Console.WriteLine("1. Write an entry");
+            Console.WriteLine("2. Read entries");
+            Console.WriteLine("3. Exit");
+            Console.Write("Choose an option: ");
+
+            switch (Console.ReadLine())
             {
-                writer.WriteLine(prompts[i] + ": " + responses[i]);
+                case "1":
+                    WriteEntry();
+                    break;
+                case "2":
+                    ReadEntries();
+                    break;
+                case "3":
+                    return;
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
             }
         }
-        Console.WriteLine("Event saved successfully!");
+    }
+
+    static void WriteEntry()
+    {
+        Console.Write("Write your journal entry:\n");
+        string content = Console.ReadLine();
+        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        string filename = $"Entry_{timestamp}.txt";
+
+        File.WriteAllText(Path.Combine(journalDirectory, filename), content);
+
+        Console.WriteLine("Journal entry saved.\n");
+    }
+
+    static void ReadEntries()
+    {
+        var entries = Directory.GetFiles(journalDirectory);
+
+        foreach (var entry in entries)
+        {
+            Console.WriteLine($"Reading {Path.GetFileName(entry)}:");
+            Console.WriteLine(File.ReadAllText(entry));
+            Console.WriteLine("-------------------------\n");
+        }
+
+        if (entries.Length == 0)
+        {
+            Console.WriteLine("No journal entries found.");
+        }
     }
 }
+
