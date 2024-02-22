@@ -1,9 +1,21 @@
 using System;
+using System.Collections.Generic;
 
-internal class Program
+class Program
 {
-    private static void Main(string[] args)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
+        List<Activity> activities = new List<Activity>
+        {
+            new Running(new DateTime(2024, 02, 19), 30, 3.0),
+            new Running(new DateTime(2024, 02, 19), 30, 4.8),
+            new Cycling(new DateTime(2024, 02, 19), 45, 15),
+            new Swimming(new DateTime(2024, 02, 19), 60, 20)
+        };
+
+        foreach (var activity in activities)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
     }
 }
